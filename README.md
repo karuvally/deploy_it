@@ -19,6 +19,8 @@ setup a systemd service, if you think you need one.
 ### Using NetDog
 
 ## Roadmap  
+- Basic working deployer
+- Configurable positional arguments
 - Custom scripts
 
 ## Contributing to NetDog
