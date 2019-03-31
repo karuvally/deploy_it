@@ -4,13 +4,14 @@
 
 # import the serious stuff
 import json
-import argparse
 import shutil
 
 
 # the main function
 def main():
-    pass
+    # read the configuration
+
+    # build the archive
 
 
 if __name__ == "__main__":
