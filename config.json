@@ -5,7 +5,12 @@
     },
 
     "systemd_service": {
-        "enable_service": false,
+        "enable": false,
         "unit_file": "src/sample_app.service"
+    }
+
+    "build": {
+        "archive_name": "sample_app",
+        "archive_format": "zip"
     }
 }
