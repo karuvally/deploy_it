@@ -7,6 +7,11 @@ import json
 import shutil
 
 
+# build the deployment archive
+def build_archive():
+    pass
+
+
 # the main function
 def main():
     # read the configution
