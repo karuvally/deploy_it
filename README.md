@@ -9,10 +9,18 @@ of virtualenv to do the same, but in a totally painless manner. It can also
 setup a systemd service, if you think you need one.
 
 ## Getting Started
+- Create an "src" directory and copy your source files onto it
+- Change the "config.json" according to your needs
+- Run "./build.py" to create the deployer archive
+- Go to target system, extract the archive and run "./deploy.py"
+
 ### Prerequisites
 ### Installing
 ### Using NetDog
+
 ## Roadmap  
+- Custom scripts
+
 ## Contributing to NetDog
 
 ## Authors
