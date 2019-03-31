@@ -10,8 +10,8 @@
         "unit_file": "src/sample_app.service"
     },
 
-    "build": {
-        "archive_name": "sample_app",
-        "archive_format": "zip"
+    "archive": {
+        "filename": "sample_app",
+        "format": "zip"
     }
 }
