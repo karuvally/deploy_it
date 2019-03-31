@@ -8,7 +8,7 @@ import shutil
 
 
 # build the deployment archive
-def build_archive():
+def build_archive(config):
     pass
 
 
@@ -22,6 +22,7 @@ def main():
         print("it seems config.json is missing :(")
 
     # build the archive
+    build_archive(config)
 
 
 if __name__ == "__main__":
