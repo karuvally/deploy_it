@@ -1,5 +1,11 @@
 {
     "basics": {
-        "title": "Sample application"
+        "title": "Sample application",
+        "source_dir": "src"
+    },
+
+    "systemd_service": {
+        "enable_service": false,
+        "unit_file": "src/sample_app.service"
     }
 }
