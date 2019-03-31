@@ -14,23 +14,16 @@ setup a systemd service, if you think you need one.
 - Run "./build.py" to create the deployer archive
 - Go to target system, extract the archive and run "./deploy.py"
 
-### Prerequisites
-### Installing
-### Using NetDog
-
 ## Roadmap  
 - Basic working deployer
 - Configurable positional arguments
 - Custom scripts
 
-## Contributing to NetDog
-
 ## Authors
-
 * **Aswin Babu Karuvally** - *Initial work*
 
-## License
 
+## License
 This project is licensed under the MIT License - see the
 [LICENSE](LICENSE) file for details
 
