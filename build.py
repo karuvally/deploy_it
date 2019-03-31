@@ -26,7 +26,8 @@ def main():
 
     # read the configution
     config_file = open("config.json")
-    config = json.loads(config_file)
+    config_string = config_file.read()
+    config = json.loads(config_string)
 
 
     # build the archive
