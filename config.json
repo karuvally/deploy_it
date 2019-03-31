@@ -1,7 +1,8 @@
 {
     "basics": {
         "title": "Sample application",
-        "source_dir": "src"
+        "source_dir": "src",
+        "verbose": true
     },
 
     "systemd_service": {
