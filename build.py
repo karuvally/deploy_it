@@ -18,12 +18,13 @@ def build_archive(config):
 # the main function
 def main():
     # read the configution
-    if os.path.exists("config.json"):
-        config_file = open("config.json")
-        config = json.loads(config_file)
-    else:
+    if not os.path.exists("config.json"):
         print("it seems config.json is missing :(")
         sys.exit()
+
+    config_file = open("config.json")
+    config = json.loads(config_file)
+
 
     # build the archive
     build_archive(config)
