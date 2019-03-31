@@ -16,6 +16,18 @@ def build_archive(config):
         print("source directory is not accessible :(")
         sys.exit()
 
+    # get archive configuration
+    archive_name = config["archive"]["filename"]
+    archive_format = config["archive"]["format"]
+    source_dir = config["basics"]["source_dir"]
+
+    # create the archive
+    shutil.make_archive(
+        base_name = archive_name,
+        format = archive_format,
+        base_dir = source_dir 
+    )
+
 
 # the main function
 def main():
