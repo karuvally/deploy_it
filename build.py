@@ -6,10 +6,12 @@
 import json
 import shutil
 import sys
+import os
 
 
 # build the deployment archive
 def build_archive(config):
+    # basic checks
     if not os.path.isdir(config["basics"]["source_dir"]):
         print("source directory is not accessible :(")
         sys.exit()
@@ -17,11 +19,12 @@ def build_archive(config):
 
 # the main function
 def main():
-    # read the configution
+    # basic checks
     if not os.path.exists("config.json"):
         print("it seems config.json is missing :(")
         sys.exit()
 
+    # read the configution
     config_file = open("config.json")
     config = json.loads(config_file)
 
