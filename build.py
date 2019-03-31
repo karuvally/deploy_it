@@ -11,15 +11,15 @@ import os
 
 # build the deployment archive
 def build_archive(config):
-    # basic checks
-    if not os.path.isdir(config["basics"]["source_dir"]):
-        print("source directory is not accessible :(")
-        sys.exit()
-
-    # get archive configuration
+    # get configuration
     archive_name = config["archive"]["filename"]
     archive_format = config["archive"]["format"]
     source_dir = config["basics"]["source_dir"]
+
+    # basic checks
+    if not os.path.isdir(source_dir):
+        print("source directory is not accessible :(")
+        sys.exit()
 
     # create the archive
     shutil.make_archive(
