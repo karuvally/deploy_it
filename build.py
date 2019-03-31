@@ -9,7 +9,12 @@ import shutil
 
 # the main function
 def main():
-    # read the configuration
+    # read the configution
+    if os.path.exists("config.json"):
+        config_file = open("config.json")
+        config = json.loads(config_file)
+    else:
+        print("it seems config.json is missing :(")
 
     # build the archive
 
