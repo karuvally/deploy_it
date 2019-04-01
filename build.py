@@ -21,6 +21,10 @@ def build_archive(config):
         print("source directory is not accessible :(")
         sys.exit()
 
+    # copy deployer files
+    shutil.copy("config.json", "src")
+    shutil.copy("deploy.py", "src")
+
     # create the archive
     shutil.make_archive(
         base_name = archive_name,
