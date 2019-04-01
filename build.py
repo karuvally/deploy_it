@@ -36,13 +36,12 @@ def build_archive(config):
 # the main function
 def main():
     # basic checks
-    if os.path.exists("config.json"):
-        pass
-    elif os.path.exists("deploy.py"):
-        pass
-    else:
-        print("deploy_it system files are missing :(")
-        sys.exit()
+    file_list = ["config.json", "deploy.py"]
+
+    for system_file in file_list:
+        if not os.path.exists(system_file):
+            print(system_file, "does not exist :(")
+            sys.exit()
 
     # read the configution
     config_file = open("config.json")
