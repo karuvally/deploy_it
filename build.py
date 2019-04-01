@@ -47,6 +47,9 @@ def main():
         datefmt = date_format
     )
 
+    # print logs to stderr
+    logging.getLogger().addHandler(logging.StreamHandler())
+
     # basic checks
     file_list = ["config.json", "deploy.py"]
 
