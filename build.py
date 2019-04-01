@@ -7,6 +7,7 @@ import json
 import shutil
 import sys
 import os
+import logging
 
 
 # build the deployment archive
@@ -35,6 +36,17 @@ def build_archive(config):
 
 # the main function
 def main():
+    # setup logging
+    format_string = "[%(asctime)s] %(message)s"
+    date_format = "%Y-%m-%d %H:%M:%S"
+
+    logging.basicConfig(
+        filename = os.path.join(config_dir, "log"),
+        level = logging.DEBUG,
+        format = format_string,
+        datefmt = date_format
+    )
+
     # basic checks
     file_list = ["config.json", "deploy.py"]
 
