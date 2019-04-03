@@ -41,7 +41,7 @@ def main():
     date_format = "%Y-%m-%d %H:%M:%S"
 
     logging.basicConfig(
-        filename = os.path.join(config_dir, "log"),
+        filename = os.path.join("build.log"),
         level = logging.DEBUG,
         format = format_string,
         datefmt = date_format
