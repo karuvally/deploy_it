@@ -2,7 +2,8 @@
     "basics": {
         "title": "Sample application",
         "source_dir": "src",
-        "verbose": true
+        "verbose": true,
+        "requirements_file": "src/requirements.txt"
     },
 
     "systemd_service": {
