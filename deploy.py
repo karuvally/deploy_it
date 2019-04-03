@@ -7,6 +7,13 @@
 
 # the main function
 def main():
+    # install virtualenv
+
+    # create virtualenv
+
+    # copy the files
+
+    # setup service
     pass
 
 
