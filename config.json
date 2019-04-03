@@ -7,7 +7,7 @@
     },
 
     "systemd_service": {
-        "enable": false,
+        "enable": true,
         "unit_file": "src/sample_app.service"
     },
 
