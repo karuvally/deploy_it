@@ -19,7 +19,7 @@ def build_archive(config):
 
     # basic checks
     if not os.path.isdir(source_dir):
-        print("source directory is not accessible :(")
+        logging.warning("source directory is not accessible :(")
         sys.exit()
 
     # copy deployer files
