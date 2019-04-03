@@ -14,6 +14,8 @@ def install_virtualenv():
     distro = distro.split()[2]
 
     # read distro specific info
+    install_cmd_file = open("install_venv.json")
+
     # install virtualenv
     pass
 
