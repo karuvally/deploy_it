@@ -13,6 +13,8 @@ def main():
 
     # copy the files
 
+    # install requirements
+
     # setup service
     pass
 
