@@ -56,7 +56,7 @@ def main():
 
     for system_file in file_list:
         if not os.path.exists(system_file):
-            logging.warning(system_file + "does not exist :(")
+            logging.warning(system_file + " does not exist :(")
             sys.exit()
 
     # read the configution
