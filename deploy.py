@@ -4,6 +4,7 @@
 
 # import serious stuff
 import os
+import json
 import pdb # debug
 
 # install virtualenv
@@ -15,6 +16,14 @@ def install_virtualenv():
 
     # read distro specific info
     install_cmd_file = open("install_venv.json")
+    install_cmd_string = install_cmd_file.read()
+    install_cmds = json.loads(install_cmd_string)
+
+    if distro in install_cmds:
+        command_list = install_cmds[distro]
+    else:
+        logging.warning("virtualenv cannot be installed, exiting")
+
 
     # install virtualenv
     pass
