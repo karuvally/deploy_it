@@ -51,6 +51,7 @@ def main():
     logging.getLogger().addHandler(logging.StreamHandler())
 
     # basic checks
+    logging.info("initializing deploy_it builder")
     file_list = ["config.json", "deploy.py"]
 
     for system_file in file_list:
