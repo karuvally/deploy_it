@@ -3,12 +3,16 @@
 # Copyright 2019, Aswin Babu Karuvally
 
 # import serious stuff
-import subprocess
-
+import os
+import pdb # debug
 
 # install virtualenv
 def install_virtualenv():
     # get the distribution name
+    distro = os.popen("lsb_release -i")
+    distro = distro.read().rstrip()
+    distro = distro.split()[2]
+
     # read distro specific info
     # install virtualenv
     pass
@@ -17,6 +21,8 @@ def install_virtualenv():
 # the main function
 def main():
     # install virtualenv
+    install_virtualenv()
+
     # create virtualenv
     # copy the files
     # install requirements
