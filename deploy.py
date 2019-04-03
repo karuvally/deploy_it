@@ -3,18 +3,23 @@
 # Copyright 2019, Aswin Babu Karuvally
 
 # import serious stuff
+import subprocess
+
+
+# install virtualenv
+def install_virtualenv():
+    # get the distribution name
+    # read distro specific info
+    # install virtualenv
+    pass
 
 
 # the main function
 def main():
     # install virtualenv
-
     # create virtualenv
-
     # copy the files
-
     # install requirements
-
     # setup service
     pass
 
