@@ -9,6 +9,8 @@ import sys
 import os
 import logging
 
+import pdb # debug
+
 
 # build the deployment archive
 def build_archive(config, file_list):
@@ -72,8 +74,11 @@ def main():
     config = json.loads(config_string)
 
     # config script specific checks
-    pdb.set_trace() # debug
-
+    if config["systemd_service"]["enable"] == True:
+        unit_file = config["systemd_service"]["unit_file"]
+        if not os.path.exists(unit_file):
+            logging.warning(unit_file + " does not exist, exiting...")
+            sys.exit(1)
 
     # build the archive
     build_archive(config, file_list)
