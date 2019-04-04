@@ -14,5 +14,10 @@
     "archive": {
         "filename": "sample_app",
         "format": "zip"
+    },
+
+    "custom_script": {
+        "enable": false,
+        "script_file": "src/post_install.py"
     }
 }
