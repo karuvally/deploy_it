@@ -23,8 +23,8 @@ def build_archive(config, file_list):
         sys.exit()
 
     # copy deployer files
-    shutil.copy("config.json", "src")
-    shutil.copy("deploy.py", "src")
+    for file_path in file_list:
+        shutil.copy(file_path, "src")
 
     # create the archive
     shutil.make_archive(
