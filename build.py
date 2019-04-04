@@ -57,7 +57,7 @@ def main():
     logging.info("initializing deploy_it builder")
     file_list = [
         "config.json", 
-        "deploy.py"i,
+        "deploy.py",
         "install_venv.json"
     ]
 
@@ -70,6 +70,10 @@ def main():
     config_file = open("config.json")
     config_string = config_file.read()
     config = json.loads(config_string)
+
+    # config script specific checks
+    pdb.set_trace() # debug
+
 
     # build the archive
     build_archive(config, file_list)
