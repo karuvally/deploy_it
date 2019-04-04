@@ -11,7 +11,7 @@ import logging
 
 
 # build the deployment archive
-def build_archive(config):
+def build_archive(config, file_list):
     # get configuration
     archive_name = config["archive"]["filename"]
     archive_format = config["archive"]["format"]
@@ -70,7 +70,7 @@ def main():
 
 
     # build the archive
-    build_archive(config)
+    build_archive(config, file_list)
 
 
 if __name__ == "__main__":
