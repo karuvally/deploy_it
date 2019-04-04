@@ -24,7 +24,6 @@ def install_virtualenv():
     else:
         logging.warning("virtualenv cannot be installed, exiting")
 
-
     # install virtualenv
     pass
 

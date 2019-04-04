@@ -52,7 +52,11 @@ def main():
 
     # basic checks
     logging.info("initializing deploy_it builder")
-    file_list = ["config.json", "deploy.py"]
+    file_list = [
+        "config.json", 
+        "deploy.py"i,
+        "install_venv.json"
+    ]
 
     for system_file in file_list:
         if not os.path.exists(system_file):
