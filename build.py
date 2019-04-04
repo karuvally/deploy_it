@@ -33,6 +33,9 @@ def build_archive(config, file_list):
         base_dir = source_dir 
     )
 
+    # log and exit
+    logging.info(archive_name + archive_format + " is built")
+
 
 # the main function
 def main():
@@ -67,7 +70,6 @@ def main():
     config_file = open("config.json")
     config_string = config_file.read()
     config = json.loads(config_string)
-
 
     # build the archive
     build_archive(config, file_list)
