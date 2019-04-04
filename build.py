@@ -80,6 +80,11 @@ def main():
             logging.warning(unit_file + " does not exist, exiting...")
             sys.exit(1)
 
+    if config["custom_script"]["enable"] == True:
+        script_file = config["custom_script"]["enable"]
+        if not os.path.exists(script_file):
+            logging.warning(script_file + " does not exist, exiting...")
+
     # build the archive
     build_archive(config, file_list)
 
