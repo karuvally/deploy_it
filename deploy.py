@@ -6,6 +6,7 @@
 import os
 import json
 import subprocess
+import sys
 import pdb # debug
 
 # install virtualenv
@@ -24,6 +25,7 @@ def install_virtualenv():
         command_list = install_cmds[distro]
     else:
         logging.warning("virtualenv cannot be installed, exiting")
+        sys.exit(1)
 
     # install virtualenv
     for command in command_list:
