@@ -5,6 +5,7 @@
 # import serious stuff
 import os
 import json
+import subprocess
 import pdb # debug
 
 # install virtualenv
@@ -25,7 +26,11 @@ def install_virtualenv():
         logging.warning("virtualenv cannot be installed, exiting")
 
     # install virtualenv
-    pass
+    for command in command_list:
+        return_code = subprocess.call(command, shell=True)
+        if return_code != 0:
+            logging.warning(command + " failed, exiting")
+            sys.exit(1)
 
 
 # the main function
