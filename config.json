@@ -3,7 +3,8 @@
         "title": "Sample application",
         "source_dir": "src",
         "verbose": true,
-        "requirements_file": "src/requirements.txt"
+        "requirements_file": "src/requirements.txt",
+        "install_path": "/opt/sample_app"
     },
 
     "systemd_service": {

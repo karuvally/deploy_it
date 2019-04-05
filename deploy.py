@@ -43,6 +43,11 @@ def install_virtualenv():
 
 # the main function
 def main():
+    # read configuration
+    config_file = open("config.json")
+    config = config.read()
+    config = json.loads(config)
+
     # install virtualenv
     install_virtualenv()
 
