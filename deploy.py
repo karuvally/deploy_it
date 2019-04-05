@@ -9,6 +9,12 @@ import subprocess
 import sys
 import pdb # debug
 
+
+# create virtualenv for the app
+def create_virtualenv():
+    pass
+
+
 # install virtualenv
 def install_virtualenv():
     # get the distribution name
@@ -41,6 +47,8 @@ def main():
     install_virtualenv()
 
     # create virtualenv
+    create_virtualenv()
+
     # copy the files
     # install requirements
     # setup service
