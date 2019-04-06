@@ -95,7 +95,7 @@ def main():
     install_virtualenv()
 
     # create virtualenv
-    create_virtualenv()
+    create_virtualenv(config)
 
     # setup service
     if config["systemd_service"]["enable"] == True:
