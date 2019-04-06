@@ -1,19 +1,19 @@
 {
     "basics": {
-        "title": "Sample application",
+        "title": "Netdog Server",
         "source_dir": "src",
         "verbose": true,
         "requirements_file": "src/requirements.txt",
-        "install_path": "/opt/sample_app"
+        "install_path": "/opt/netdog_server"
     },
 
     "systemd_service": {
-        "enable": false,
-        "unit_file": "src/sample_app.service"
+        "enable": true,
+        "unit_file": "src/netdog_server.service"
     },
 
     "archive": {
-        "filename": "sample_app",
+        "filename": "netdog_server",
         "format": "zip"
     },
 
