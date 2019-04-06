@@ -104,5 +104,7 @@ def main():
             logging.warning(unit_file + " does not exist, exiting")
             sys.exit(1)
 
+        shutil.copy(unit_file, "/etc/systemd/system")
+
 if __name__ == "__main__":
     main()
