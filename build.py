@@ -30,13 +30,15 @@ def build_archive(config, file_list):
     for file_path in file_list:
         shutil.copy(file_path, "tmp")
 
-    shutil.copy("src", "tmp")
+    shutil.copytree("src", "tmp")
 
     shutil.make_archive(
         base_name = archive_name,
         format = archive_format,
         base_dir = tmp 
     )
+
+    shutil.rmtree("tmp")
 
     # log and exit
     logging.info(archive_name + archive_format + " is built")
