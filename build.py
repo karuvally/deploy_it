@@ -24,14 +24,16 @@ def build_archive(config, file_list):
         logging.warning("source directory is not accessible, exiting...")
         sys.exit()
 
-    # create archive
+    # copy files
+    os.mkdir(archive_name)
     for file_path in file_list:
-        shutil.copy(file_path, "src")
+        shutil.copy(file_path, archive_name)
 
+    # create archive
     shutil.make_archive(
         base_name = archive_name,
         format = archive_format,
-        base_dir = source_dir 
+        base_dir = archive_name 
     )
 
     # log and exit
