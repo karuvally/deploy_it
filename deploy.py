@@ -92,7 +92,7 @@ def main():
     config = json.loads(config)
 
     # install virtualenv
-    install_virtualenv(config)
+    install_virtualenv()
 
     # create virtualenv
     create_virtualenv()
