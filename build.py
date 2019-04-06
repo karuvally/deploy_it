@@ -35,7 +35,7 @@ def build_archive(config, file_list):
     )
 
     # log and exit
-    logging.info(archive_name + archive_format + " is built")
+    logging.info(archive_name + "." + archive_format + " is built")
 
 
 # the main function
