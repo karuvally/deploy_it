@@ -88,7 +88,7 @@ def main():
 
     # read configuration
     config_file = open("config.json")
-    config = config.read()
+    config = config_file.read()
     config = json.loads(config)
 
     # install virtualenv
