@@ -28,7 +28,7 @@ def create_virtualenv(config):
         sys.exit(1)
 
     # copy files
-    shutil.copy("src", install_path)
+    shutil.copytree(".", os.path.join(install_path, "src")
 
     # activate virtualenv
     # install requirements
