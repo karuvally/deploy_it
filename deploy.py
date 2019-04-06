@@ -16,6 +16,7 @@ def create_virtualenv(config):
     # read config
     install_path = config["basics"]["install_path"]
     requirements_file = config["basics"]["requirements_file"]
+    requirements_file_path = os.path.join(install_path, requirements_file)
 
     # create virtualenv
     return_code = subprocess.call(
@@ -28,10 +29,17 @@ def create_virtualenv(config):
         sys.exit(1)
 
     # copy files
-    shutil.copytree(".", os.path.join(install_path, "src")
+    shutil.copytree(".", os.path.join(install_path, "src"))
 
-    # activate virtualenv
     # install requirements
+    return_code = subprocess.call(
+        install_path + "/bin/pip3 install -r " + requirements_file_path,
+        shell = True
+    )
+
+    if return_code != 0:
+        logging.warning("cannot install requirements, exiting")
+        sys.exit(1)
 
 
 # install virtualenv
