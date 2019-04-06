@@ -17,6 +17,14 @@ def create_virtualenv(config):
     requirements_file = config["basics"]["requirements_file"]
 
     # create virtualenv
+    return_code = subprocess.call(
+        "python3 -m venv " + install_path,
+        shell = True
+    )
+
+    if return_code != 0:
+        logging.warning("virtualenv cannot be created, exiting")
+        sys.exit(1)
 
     # copy files
     # activate virtualenv
