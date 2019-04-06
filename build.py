@@ -24,15 +24,18 @@ def build_archive(config, file_list):
         logging.warning("source directory is not accessible, exiting...")
         sys.exit()
 
-    # copy deployer files
-    for file_path in file_list:
-        shutil.copy(file_path, "src")
+    # create archive
+    os.mkdir("tmp")
 
-    # create the archive
+    for file_path in file_list:
+        shutil.copy(file_path, "tmp")
+
+    shutil.copy("src", "tmp")
+
     shutil.make_archive(
         base_name = archive_name,
         format = archive_format,
-        base_dir = source_dir 
+        base_dir = tmp 
     )
 
     # log and exit

@@ -7,6 +7,7 @@ import os
 import json
 import subprocess
 import sys
+import shutil
 import pdb # debug
 
 
@@ -27,6 +28,8 @@ def create_virtualenv(config):
         sys.exit(1)
 
     # copy files
+    shutil.copy("src", install_path)
+
     # activate virtualenv
     # install requirements
 
