@@ -96,10 +96,13 @@ def main():
     # create virtualenv
     create_virtualenv()
 
-    # copy the files
-    # install requirements
     # setup service
+    if config["systemd_service"]["enable"] == True:
+        unit_file = config["systemd_service"]["unit_file"]
 
+        if not os.path.isfile(unit_file):
+            logging.warning(unit_file + " does not exist, exiting")
+            sys.exit(1)
 
 if __name__ == "__main__":
     main()
