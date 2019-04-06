@@ -11,8 +11,16 @@ import pdb # debug
 
 
 # create virtualenv for the app
-def create_virtualenv():
-    pass
+def create_virtualenv(config):
+    # read config
+    install_path = config["basics"]["install_path"]
+    requirements_file = config["basics"]["requirements_file"]
+
+    # create virtualenv
+
+    # copy files
+    # activate virtualenv
+    # install requirements
 
 
 # install virtualenv
@@ -64,7 +72,7 @@ def main():
     config = json.loads(config)
 
     # install virtualenv
-    install_virtualenv()
+    install_virtualenv(config)
 
     # create virtualenv
     create_virtualenv()
@@ -72,7 +80,6 @@ def main():
     # copy the files
     # install requirements
     # setup service
-    pass
 
 
 if __name__ == "__main__":
