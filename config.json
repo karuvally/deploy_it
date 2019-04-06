@@ -3,7 +3,7 @@
         "title": "Netdog Server",
         "source_dir": "src",
         "verbose": true,
-        "requirements_file": "src/requirements.txt",
+        "requirements_file": "src/deploy/requirements.txt",
         "install_path": "/opt/netdog_server"
     },
 
