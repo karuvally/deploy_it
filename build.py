@@ -28,6 +28,7 @@ def build_archive(config, file_list):
     os.mkdir(archive_name)
     for file_path in file_list:
         shutil.copy(file_path, archive_name)
+    shutil.copytree("src", archive_name)
 
     # create archive
     shutil.make_archive(
