@@ -7,6 +7,7 @@ import os
 import json
 import subprocess
 import sys
+import logging
 import shutil
 import pdb # debug
 
