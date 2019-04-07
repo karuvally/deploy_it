@@ -8,7 +8,7 @@ import shutil
 import sys
 import os
 import logging
-from distutils.dir import copy_tree
+from distutils.dir_util import copy_tree
 
 import pdb # debug
 
