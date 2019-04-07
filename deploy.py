@@ -108,5 +108,12 @@ def main():
 
         shutil.copy(unit_file, "/etc/systemd/system")
 
+    # enable service
+        return_code = subprocess.call(
+            "systemctl enable " + os.path.basename(unit_file)
+        )
+
+    # start service
+
 if __name__ == "__main__":
     main()
