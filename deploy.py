@@ -18,7 +18,7 @@ def create_virtualenv(config):
     # read config
     install_path = config["basics"]["install_path"]
     requirements_file = config["basics"]["requirements_file"]
-    requirements_path = os.path.join(install_path, "src", requirements_file)
+    requirements_file_path = os.path.join(install_path, requirements_file)
 
     # create virtualenv
     return_code = subprocess.call(
@@ -35,7 +35,7 @@ def create_virtualenv(config):
 
     # install requirements
     return_code = subprocess.call(
-        install_path + "/bin/pip3 install -r " + requirements_path,
+        install_path + "/bin/pip3 install -r " + requirements_file_path,
         shell = True
     )
 
