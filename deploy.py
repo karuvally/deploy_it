@@ -40,10 +40,6 @@ def create_virtualenv(config):
         install_path + "/bin/pip3 install -r " + requirements_file_path
     )
 
-    if return_code != 0:
-        logging.warning("cannot install requirements, exiting")
-        sys.exit(1)
-
 
 # install virtualenv
 def install_virtualenv():
@@ -65,10 +61,7 @@ def install_virtualenv():
 
     # install virtualenv
     for command in command_list:
-        return_code = subprocess.call(command, shell=True)
-        if return_code != 0:
-            logging.warning(command + " failed, exiting")
-            sys.exit(1)
+        execute_command(command)
 
 
 # the main function
@@ -109,10 +102,8 @@ def main():
 
         shutil.copy(unit_file, "/etc/systemd/system")
 
-    # enable service
-        return_code = subprocess.call(
-            "systemctl enable " + os.path.basename(unit_file)
-        )
+        # enable  and start service
+        execute_command("systemctl enable " + os.path.basename(unit_file))
 
     # start service
 
