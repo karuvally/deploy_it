@@ -36,9 +36,8 @@ def create_virtualenv(config):
     copy_tree("src", os.path.join(install_path, "src"))
 
     # install requirements
-    return_code = subprocess.call(
-        install_path + "/bin/pip3 install -r " + requirements_file_path,
-        shell = True
+    execute_command(
+        install_path + "/bin/pip3 install -r " + requirements_file_path
     )
 
     if return_code != 0:
