@@ -30,14 +30,7 @@ def create_virtualenv(config):
     requirements_file_path = os.path.join(install_path, requirements_file)
 
     # create virtualenv
-    return_code = subprocess.call(
-        "python3 -m venv " + install_path,
-        shell = True
-    )
-
-    if return_code != 0:
-        logging.warning("virtualenv cannot be created, exiting")
-        sys.exit(1)
+    execute_command("python3 -m venv " + install_path)
 
     # copy files
     copy_tree("src", os.path.join(install_path, "src"))
