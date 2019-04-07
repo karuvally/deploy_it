@@ -8,6 +8,7 @@ import shutil
 import sys
 import os
 import logging
+from distutils.dir import copy_tree
 
 import pdb # debug
 
@@ -28,7 +29,7 @@ def build_archive(config, file_list):
     os.mkdir(archive_name)
     for file_path in file_list:
         shutil.copy(file_path, archive_name)
-    shutil.copytree("src", archive_name)
+    copy_tree("src", archive_name)
 
     # create archive
     shutil.make_archive(
