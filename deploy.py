@@ -9,6 +9,7 @@ import subprocess
 import sys
 import logging
 import shutil
+from distutils.dir_util import copy_tree
 import pdb # debug
 
 
@@ -17,7 +18,7 @@ def create_virtualenv(config):
     # read config
     install_path = config["basics"]["install_path"]
     requirements_file = config["basics"]["requirements_file"]
-    requirements_file_path = os.path.join(install_path, requirements_file)
+    requirements_path = os.path.join(install_path, "src", requirements_file)
 
     # create virtualenv
     return_code = subprocess.call(
@@ -30,11 +31,11 @@ def create_virtualenv(config):
         sys.exit(1)
 
     # copy files
-    shutil.copytree(".", os.path.join(install_path, "src"))
+    copy_tree("src", os.path.join(install_path, "src"))
 
     # install requirements
     return_code = subprocess.call(
-        install_path + "/bin/pip3 install -r " + requirements_file_path,
+        install_path + "/bin/pip3 install -r " + requirements_path,
         shell = True
     )
 
