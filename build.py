@@ -38,7 +38,8 @@ def build_archive(config, file_list):
         base_dir = archive_name 
     )
 
-    # log and exit
+    # cleanup and exit
+    shutil.rmtree(archive_name)
     logging.info(archive_name + "." + archive_format + " is built")
 
 
