@@ -88,9 +88,11 @@ def main():
 
     # install virtualenv
     install_virtualenv()
+    logging.info("installed virtualenv")
 
     # create virtualenv
     create_virtualenv(config)
+    logging.info("created virtualenv for app")
 
     # setup service
     if config["systemd_service"]["enable"] == True:
@@ -105,6 +107,7 @@ def main():
         # enable  and start service
         execute_command("systemctl enable " + os.path.basename(unit_file))
         execute_command("systemctl start " + os.path.basename(unit_file))
+        logging.info(os.path.basename(unit_file) + " is enabled and running")
 
 
 if __name__ == "__main__":
