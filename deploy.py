@@ -106,7 +106,6 @@ def main():
         execute_command("systemctl enable " + os.path.basename(unit_file))
         execute_command("systemctl start " + os.path.basename(unit_file))
 
-    # start service
 
 if __name__ == "__main__":
     main()
