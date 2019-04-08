@@ -22,6 +22,7 @@ setup a systemd service, if you think you need one.
 
 ## Roadmap  
 - Fetch source from Git Service
+- Auto generate systemd unit file
 
 ## Authors
 * **Aswin Babu Karuvally** - *Initial work*
