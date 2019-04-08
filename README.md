@@ -15,9 +15,7 @@ setup a systemd service, if you think you need one.
 - Go to target system, extract the archive and run "./deploy.py"
 
 ## Roadmap  
-- Basic working deployer
-- Configurable positional arguments
-- Custom scripts
+- Fetch source from Git Service
 
 ## Authors
 * **Aswin Babu Karuvally** - *Initial work*
