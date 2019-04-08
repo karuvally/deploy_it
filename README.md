@@ -8,6 +8,12 @@ truckload of 3rd party dependencies. deploy_it leverages on the awesome power
 of virtualenv to do the same, but in a totally painless manner. It can also
 setup a systemd service, if you think you need one.
 
+## Why Should I care?
+- Easily deploy your python app
+- Takes care of all the dependencies
+- Isolated from the Python ecosystem on target machine
+- Ability to run app as service
+
 ## Getting Started
 - Create an "src" directory and copy your source files onto it
 - Change the "config.json" according to your needs
