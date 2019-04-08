@@ -94,6 +94,10 @@ def main():
     create_virtualenv(config)
     logging.info("created virtualenv for app")
 
+    # run post install script
+    if config["post_install_script"]["enable"]:
+        execute_command(config["post_install_script"]["script_file"])
+
     # setup service
     if config["systemd_service"]["enable"] == True:
         unit_file = config["systemd_service"]["unit_file"]
