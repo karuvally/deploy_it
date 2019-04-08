@@ -1,0 +1,24 @@
+{
+    "basics": {
+        "title": "Netdog Server",
+        "source_dir": "src",
+        "verbose": true,
+        "requirements_file": "src/requirements.txt",
+        "install_path": "/opt/netdog_server"
+    },
+
+    "systemd_service": {
+        "enable": true,
+        "unit_file": "src/deploy/netdog_server.service"
+    },
+
+    "archive": {
+        "filename": "netdog_server",
+        "format": "zip"
+    },
+
+    "post_install_script": {
+        "enable": false,
+        "script_file": "src/deploy/post_install.py"
+    }
+}
