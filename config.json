@@ -17,7 +17,7 @@
         "format": "zip"
     },
 
-    "custom_script": {
+    "post_install_script": {
         "enable": false,
         "script_file": "src/deploy/post_install.py"
     }
