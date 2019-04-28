@@ -35,6 +35,9 @@ def create_virtualenv(config):
     # copy files
     copy_tree("src", os.path.join(install_path, "src"))
 
+    # upgrade pip
+    execute_command(install_path + "/bin/pip3 install --upgrade pip")
+
     # install requirements
     execute_command(
         install_path + "/bin/pip3 install -r " + requirements_file_path
@@ -79,7 +82,6 @@ def main():
 
     # print logs to stderr
     logging.getLogger().addHandler(logging.StreamHandler())
-
 
     # read configuration
     config_file = open("config.json")
