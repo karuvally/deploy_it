@@ -114,6 +114,7 @@ def main():
         execute_command("systemctl enable " + os.path.basename(unit_file))
         execute_command("systemctl start " + os.path.basename(unit_file))
         logging.info(os.path.basename(unit_file) + " is enabled and running")
+        logging.info("installation is complete.")
 
 
 if __name__ == "__main__":
