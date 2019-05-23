@@ -4,7 +4,7 @@
         "source_dir": "src",
         "verbose": true,
         "requirements_file": "src/requirements.txt",
-        "install_path": "/opt/sample_app",
+        "install_path": "/opt/sample_app"
     },
 
     "systemd_service": {
@@ -20,5 +20,11 @@
     "post_install_script": {
         "enable": false,
         "script_file": "src/deploy/post_install.py"
+    },
+
+    "symlink": {
+        "enable": false,
+        "target": "src/sample_app",
+        "link_path": "/usr/local/bin/sample_app"
     }
 }
