@@ -4,7 +4,8 @@
         "source_dir": "src",
         "verbose": true,
         "requirements_file": "src/requirements.txt",
-        "install_path": "/opt/sample_app"
+        "install_path": "/opt/sample_app",
+        "add_to_path": false
     },
 
     "systemd_service": {
