@@ -1,0 +1,19 @@
+TODO
+----
+* add -y argument to install commands
+* script to uninstall app
+* generation of systemd unit file
+* implement sudo check in deploy.py
+* adding pulling of src from git
+
+
+DONE
+----
+* add app to system path
+* "src" should be inside build dir
+* better logging in deploy.py
+* copy src to app_name directory
+* copy system files to app_name directory
+* create app_name directory
+* setup deploy.py
+* add install_cmd_file to build.py
