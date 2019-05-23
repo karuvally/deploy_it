@@ -116,7 +116,13 @@ def main():
         logging.info(os.path.basename(unit_file) + " is enabled and running")
         logging.info("installation is complete.")
 
-    # add to system path
+    # add symlink
+    if config["symlink"]["enable"]:
+        target_path = os.path.join(config["basics"]["install_path"])
+        link_path = config["symlink"]["link_path"]
+
+        execute_command("ln -s " + target_path + " " + link_path)
+        logging.info("creating symlink to " + link_path)
 
 
 if __name__ == "__main__":
