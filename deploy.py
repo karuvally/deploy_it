@@ -116,6 +116,8 @@ def main():
         logging.info(os.path.basename(unit_file) + " is enabled and running")
         logging.info("installation is complete.")
 
+    # add to system path
+
 
 if __name__ == "__main__":
     main()
