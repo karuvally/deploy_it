@@ -85,7 +85,7 @@ def main():
             sys.exit(1)
 
     if config["post_install_script"]["enable"]:
-        script_file = config["custom_script"]["enable"]
+        script_file = config["post_install_script"]["script_file"]
         if not os.path.exists(script_file):
             logging.warning(script_file + " does not exist, exiting...")
 
