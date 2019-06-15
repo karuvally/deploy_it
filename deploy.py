@@ -69,6 +69,10 @@ def install_virtualenv():
 
 # the main function
 def main():
+    # check if user is root
+    if os.getuid() != 0:
+        print("please run the script as root?")
+
     # setup logging
     format_string = "[%(asctime)s] %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
