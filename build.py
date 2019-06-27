@@ -25,6 +25,9 @@ def build_archive(config, file_list):
         logging.warning("source directory is not accessible, exiting...")
         sys.exit()
 
+    if os.path.isdir(os.path.join(source_dir, ".git")):
+        shutil.rmtree(os.path.join(source_dir, ".git"))
+
     # copy files
     os.mkdir(archive_name)
     for file_path in file_list:
