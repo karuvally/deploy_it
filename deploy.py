@@ -72,6 +72,7 @@ def main():
     # check if user is root
     if os.getuid() != 0:
         print("please run the script as root?")
+        sys.exit(1)
 
     # setup logging
     format_string = "[%(asctime)s] %(message)s"
