@@ -33,6 +33,12 @@ def main():
     config = config_file.read()
     config = json.loads(config)
 
+    # remove symlink
+    if config["symlink"]["enable"]:
+        link_path = os.path.join(config["symlink"]["link_path"])
+        execute_command("rm " + link_path)
+        logging.info("removed symlink at " + link_path)
+
 
 # call the main function
 if __name__ == "__main__":
