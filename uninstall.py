@@ -17,6 +17,16 @@ def execute_command(command):
         sys.exit(1)
 
 
+# remove symlink
+def remove_symlink(config):
+    if not config["symlink"]["enable"]:
+        return
+
+    link_path = os.path.join(config["symlink"]["link_path"])
+    execute_command("rm " + link_path)
+    logging.info("removed symlink at " + link_path)
+
+
 # the main function
 def main():
     # setup logging
@@ -44,10 +54,7 @@ def main():
     config = json.loads(config)
 
     # remove symlink
-    if config["symlink"]["enable"]:
-        link_path = os.path.join(config["symlink"]["link_path"])
-        execute_command("rm " + link_path)
-        logging.info("removed symlink at " + link_path)
+    remove_symlink(config)
 
 
 # call the main function
