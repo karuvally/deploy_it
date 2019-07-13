@@ -69,11 +69,6 @@ def install_virtualenv():
 
 # the main function
 def main():
-    # check if user is root
-    if os.getuid() != 0:
-        print("please run the script as root?")
-        sys.exit(1)
-
     # setup logging
     format_string = "[%(asctime)s] %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
@@ -87,6 +82,11 @@ def main():
 
     # print logs to stderr
     logging.getLogger().addHandler(logging.StreamHandler())
+
+    # check if user is root
+    if os.getuid() != 0:
+        logging.critical("script cannot be run as normal user, exiting")
+        sys.exit(1)
 
     # read configuration
     config_file = open("config.json")
