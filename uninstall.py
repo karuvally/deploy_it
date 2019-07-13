@@ -57,6 +57,7 @@ def main():
     config_file = open("config.json")
     config = config_file.read()
     config = json.loads(config)
+    config_file.close()
 
     # remove symlink
     remove_symlink(config)
