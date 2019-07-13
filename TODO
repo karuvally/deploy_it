@@ -1,14 +1,15 @@
 TODO
 ----
-* add -y argument to install commands
+* verify sample config.json syntax
 * script to uninstall app
 * generation of systemd unit file
-* implement sudo check in deploy.py
 * adding pulling of src from git
 
 
 DONE
 ----
+* implement sudo check in deploy.py
+* add -y argument to install commands
 * add app to system path
 * "src" should be inside build dir
 * better logging in deploy.py
