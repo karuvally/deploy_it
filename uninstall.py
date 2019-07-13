@@ -5,6 +5,7 @@
 # import serious stuff
 import os
 import logging
+import json
 
 # the main function
 def main():
@@ -21,6 +22,16 @@ def main():
 
     # print logs to stderr
     logging.getLogger().addHandler(logging.StreamHandler())
+
+    # check if user is root
+    if os.getuid() != 0:
+        logging.critical("Script cannot be run as normal user, exiting")
+        sys.exit(1)
+
+    # read configuration
+    config_file = open("config.json")
+    config = config_file.read()
+    config = json.loads(config)
 
 
 # call the main function
