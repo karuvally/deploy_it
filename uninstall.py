@@ -27,9 +27,8 @@ def remove_symlink(config):
     logging.info("removed symlink at " + link_path)
 
 
-# the main function
-def main():
-    # setup logging
+# setup logging
+def setup_logging():
     format_string = "[%(asctime)s] %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
 
@@ -42,6 +41,12 @@ def main():
 
     # print logs to stderr
     logging.getLogger().addHandler(logging.StreamHandler())
+
+
+# the main function
+def main():
+    # setup logging
+    setup_logging()
 
     # check if user is root
     if os.getuid() != 0:
