@@ -80,7 +80,7 @@ def main():
 
     remove_symlink(config)
     remove_service(config)
-    remove_virtualenv()
+    remove_virtualenv(config)
 
 
 # call the main function
