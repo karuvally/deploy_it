@@ -8,6 +8,12 @@ import logging
 import json
 
 
+def remove_virtualenv(config):
+    install_path = config["basics"]["install_path"]
+    shutil.rmtree(install_path)
+    logging.info("removed virtualenv at", install_path)
+
+
 # execute command
 def execute_command(command):
     return_code = subprocess.call(command, shell=True)
@@ -72,11 +78,9 @@ def main():
     config = json.loads(config)
     config_file.close()
 
-    # remove symlink
     remove_symlink(config)
-
-    # remove service
     remove_service(config)
+    remove_virtualenv()
 
 
 # call the main function
