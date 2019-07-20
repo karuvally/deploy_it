@@ -9,8 +9,22 @@ import sys
 import os
 import logging
 from distutils.dir_util import copy_tree
-
 import pdb # debug
+
+
+def setup_logging():
+    format_string = "[%(asctime)s] %(message)s"
+    date_format = "%Y-%m-%d %H:%M:%S"
+
+    logging.basicConfig(
+        filename = os.path.join("build.log"),
+        level = logging.DEBUG,
+        format = format_string,
+        datefmt = date_format
+    )
+
+    # print logs to stderr
+    logging.getLogger().addHandler(logging.StreamHandler())
 
 
 # build the deployment archive
@@ -48,19 +62,7 @@ def build_archive(config, file_list):
 
 # the main function
 def main():
-    # setup logging
-    format_string = "[%(asctime)s] %(message)s"
-    date_format = "%Y-%m-%d %H:%M:%S"
-
-    logging.basicConfig(
-        filename = os.path.join("build.log"),
-        level = logging.DEBUG,
-        format = format_string,
-        datefmt = date_format
-    )
-
-    # print logs to stderr
-    logging.getLogger().addHandler(logging.StreamHandler())
+    setup_logging()
 
     # basic checks
     logging.info("initializing deploy_it builder")
