@@ -14,7 +14,22 @@ import pdb # debug
 
 # stuff to check before starting process
 def init_checks(config, file_list):
+    for system_file in file_list:
+        if not os.path.exists(system_file):
+            logging.critical(system_file + " does not exist, exiting...")
+            sys.exit(1)
 
+    # config script specific checks
+    if config["systemd_service"]["enable"] == True:
+        unit_file = config["systemd_service"]["unit_file"]
+        if not os.path.exists(unit_file):
+            logging.critical(unit_file + " does not exist, exiting...")
+            sys.exit(1)
+
+    if config["post_install_script"]["enable"]:
+        script_file = config["post_install_script"]["script_file"]
+        if not os.path.exists(script_file):
+            logging.critical(script_file + " does not exist, exiting...")
 
 
 def setup_logging():
@@ -81,24 +96,8 @@ def main():
         config = config_file.read()
         config = json.loads(config)
 
-    for system_file in file_list:
-        if not os.path.exists(system_file):
-            logging.critical(system_file + " does not exist, exiting...")
-            sys.exit(1)
-
-
-
-    # config script specific checks
-    if config["systemd_service"]["enable"] == True:
-        unit_file = config["systemd_service"]["unit_file"]
-        if not os.path.exists(unit_file):
-            logging.critical(unit_file + " does not exist, exiting...")
-            sys.exit(1)
-
-    if config["post_install_script"]["enable"]:
-        script_file = config["post_install_script"]["script_file"]
-        if not os.path.exists(script_file):
-            logging.critical(script_file + " does not exist, exiting...")
+    # do the initial checks
+    init_checks(config, file_list)
 
     # build the archive
     build_archive(config, file_list)
