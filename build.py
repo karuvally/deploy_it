@@ -83,7 +83,7 @@ def main():
 
     for system_file in file_list:
         if not os.path.exists(system_file):
-            logging.warning(system_file + " does not exist, exiting...")
+            logging.critical(system_file + " does not exist, exiting...")
             sys.exit(1)
 
 
@@ -92,13 +92,13 @@ def main():
     if config["systemd_service"]["enable"] == True:
         unit_file = config["systemd_service"]["unit_file"]
         if not os.path.exists(unit_file):
-            logging.warning(unit_file + " does not exist, exiting...")
+            logging.critical(unit_file + " does not exist, exiting...")
             sys.exit(1)
 
     if config["post_install_script"]["enable"]:
         script_file = config["post_install_script"]["script_file"]
         if not os.path.exists(script_file):
-            logging.warning(script_file + " does not exist, exiting...")
+            logging.critical(script_file + " does not exist, exiting...")
 
     # build the archive
     build_archive(config, file_list)
