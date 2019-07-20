@@ -72,15 +72,21 @@ def main():
     logging.info("initializing deploy_it builder")
     file_list = ["deploy.py", "install_venv.json", "uninstall.py"]
 
+    if not os.path.exists("config.json"):
+        logging.critical("config.json does not exist, exiting...")
+        sys.exit(1)
+
+    # read the configution
+    with open("config.json") as config_file:
+        config = config_file.read()
+        config = json.loads(config)
+
     for system_file in file_list:
         if not os.path.exists(system_file):
             logging.warning(system_file + " does not exist, exiting...")
             sys.exit(1)
 
-    # read the configution
-    config_file = open("config.json")
-    config_string = config_file.read()
-    config = json.loads(config_string)
+
 
     # config script specific checks
     if config["systemd_service"]["enable"] == True:
