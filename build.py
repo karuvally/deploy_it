@@ -14,6 +14,11 @@ import pdb # debug
 
 # stuff to check before starting process
 def init_checks(config, file_list):
+    # check if the current dir is writable
+    if not os.access("./", os.W_OK):
+        logging.critical("current directory is not writable, exiting...")
+        sys.exit(1)
+
     for system_file in file_list:
         if not os.path.exists(system_file):
             logging.critical(system_file + " does not exist, exiting...")
