@@ -12,6 +12,11 @@ from distutils.dir_util import copy_tree
 import pdb # debug
 
 
+# stuff to check before starting process
+def init_checks(config, file_list):
+
+
+
 def setup_logging():
     format_string = "[%(asctime)s] %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
@@ -62,20 +67,15 @@ def build_archive(config, file_list):
 
 # the main function
 def main():
+    # essential stuff
     setup_logging()
-
-    # basic checks
     logging.info("initializing deploy_it builder")
-    file_list = [
-        "config.json", 
-        "deploy.py",
-        "install_venv.json"
-    ]
+    file_list = ["deploy.py", "install_venv.json", "uninstall.py"]
 
     for system_file in file_list:
         if not os.path.exists(system_file):
             logging.warning(system_file + " does not exist, exiting...")
-            sys.exit()
+            sys.exit(1)
 
     # read the configution
     config_file = open("config.json")
