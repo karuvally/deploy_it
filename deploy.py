@@ -18,7 +18,7 @@ def execute_command(command):
     return_code = subprocess.call(command, shell=True)
 
     if return_code != 0:
-        logging.warning(command + " cannot be executed, exiting")
+        logging.critical(command + " cannot be executed, exiting")
         sys.exit(1)
 
 
@@ -59,7 +59,7 @@ def install_virtualenv():
     if distro in install_cmds:
         command_list = install_cmds[distro]
     else:
-        logging.warning("virtualenv cannot be installed, exiting")
+        logging.critical("virtualenv cannot be installed, exiting")
         sys.exit(1)
 
     # install virtualenv
@@ -111,7 +111,7 @@ def main():
         unit_file = config["systemd_service"]["unit_file"]
 
         if not os.path.isfile(unit_file):
-            logging.warning(unit_file + " does not exist, exiting")
+            logging.critical(unit_file + " does not exist, exiting")
             sys.exit(1)
 
         shutil.copy(unit_file, "/etc/systemd/system")
