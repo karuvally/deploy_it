@@ -91,11 +91,10 @@ def main():
 
     setup_logging()
 
-    # read configuration
-    config_file = open("config.json")
-    config = config_file.read()
-    config = json.loads(config)
-    config_file.close()
+    # read the configution
+    with open("config.json") as config_file:
+        config = config_file.read()
+        config = json.loads(config)
 
     # install virtualenv
     install_virtualenv()
