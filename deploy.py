@@ -13,6 +13,21 @@ from distutils.dir_util import copy_tree
 import pdb # debug
 
 
+def setup_service(config):
+    unit_file = config["systemd_service"]["unit_file"]
+
+    if not os.path.isfile(unit_file):
+        logging.critical(unit_file + " does not exist, exiting")
+        sys.exit(1)
+
+    shutil.copy(unit_file, "/etc/systemd/system")
+
+    # enable  and start service
+    execute_command("systemctl enable " + os.path.basename(unit_file))
+    execute_command("systemctl start " + os.path.basename(unit_file))
+    logging.info(os.path.basename(unit_file) + " is enabled and running")
+
+
 def setup_logging():
     format_string = "[%(asctime)s] %(message)s"
     date_format = "%Y-%m-%d %H:%M:%S"
@@ -113,20 +128,9 @@ def main():
         execute_command(config["post_install_script"]["script_file"])
 
     # setup service
-    if config["systemd_service"]["enable"] == True:
-        unit_file = config["systemd_service"]["unit_file"]
+    if config["systemd_service"]["enable"]:
+        setup_service(config)
 
-        if not os.path.isfile(unit_file):
-            logging.critical(unit_file + " does not exist, exiting")
-            sys.exit(1)
-
-        shutil.copy(unit_file, "/etc/systemd/system")
-
-        # enable  and start service
-        execute_command("systemctl enable " + os.path.basename(unit_file))
-        execute_command("systemctl start " + os.path.basename(unit_file))
-        logging.info(os.path.basename(unit_file) + " is enabled and running")
-        logging.info("installation is complete.")
 
     # add symlink
     if config["symlink"]["enable"]:
@@ -135,6 +139,8 @@ def main():
 
         execute_command("ln -s " + target_path + " " + link_path)
         logging.info("creating symlink to " + link_path)
+
+    logging.info("installation is complete.")
 
 
 if __name__ == "__main__":
