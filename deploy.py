@@ -92,13 +92,17 @@ def main():
     setup_logging()
 
     # read the configution
+    if not os.path.isfile("config.json"):
+        logging.critical("config.json does not exist, exiting...")
+        sys.exit(1)
+
     with open("config.json") as config_file:
         config = config_file.read()
         config = json.loads(config)
 
-    # install virtualenv
+    # install virtualenv module
     install_virtualenv()
-    logging.info("installed virtualenv")
+    logging.info("installed virtualenv module")
 
     # create virtualenv
     create_virtualenv(config)
