@@ -84,12 +84,12 @@ def install_virtualenv():
 
 # the main function
 def main():
-    setup_logging()
-
     # check if user is root
     if os.getuid() != 0:
-        logging.critical("please run the deployer as root")
+        print("please run the deployer as root")
         sys.exit(1)
+
+    setup_logging()
 
     # read configuration
     config_file = open("config.json")
