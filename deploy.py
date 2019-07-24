@@ -131,7 +131,6 @@ def main():
     if config["systemd_service"]["enable"]:
         setup_service(config)
 
-
     # add symlink
     if config["symlink"]["enable"]:
         target_path = os.path.join(config["basics"]["install_path"])

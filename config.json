@@ -26,5 +26,10 @@
         "enable": false,
         "target": "src/sample_app",
         "link_path": "/usr/local/bin/sample_app"
+    },
+
+    "cleanup_script": {
+        "enable": false,
+        "script_file": "src/deploy/cleanup.py"
     }
 }
