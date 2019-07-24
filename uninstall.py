@@ -8,6 +8,16 @@ import logging
 import json
 
 
+def run_cleanup_script(config):
+    if not config["cleanup_script"]["enable"]:
+        return
+
+    script_file = config["cleanup_script"]["script_file"]
+    if not os.path.isfile(script_file):
+        logging.critical(script_file + "does not exist, exiting...")
+    execute_command(script_file)
+
+
 def remove_virtualenv(config):
     install_path = config["basics"]["install_path"]
     shutil.rmtree(install_path)
@@ -81,6 +91,7 @@ def main():
     remove_symlink(config)
     remove_service(config)
     remove_virtualenv(config)
+    run_cleanup_script(config)
 
 
 # call the main function
