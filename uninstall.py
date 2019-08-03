@@ -87,11 +87,9 @@ def main():
         logging.critical("config.json does not exist, exiting...")
         sys.exit(1)
 
-    # read configuration
-    config_file = open("config.json")
-    config = config_file.read()
-    config = json.loads(config)
-    config_file.close()
+    with open("config.json") as config_file:
+        config = config_file.read()
+        config = json.loads(config)
 
     remove_symlink(config)
     remove_service(config)
