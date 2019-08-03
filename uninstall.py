@@ -79,7 +79,12 @@ def main():
 
     # check if user is root
     if os.getuid() != 0:
-        logging.critical("Script cannot be run as normal user, exiting")
+        logging.critical("Script cannot be run as normal user, exiting...")
+        sys.exit(1)
+
+    # check if config file exists
+    if not os.path.isfile("config.json"):
+        logging.critical("config.json does not exist, exiting...")
         sys.exit(1)
 
     # read configuration
