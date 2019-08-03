@@ -90,7 +90,12 @@ def main():
     # essential stuff
     setup_logging()
     logging.info("initializing deploy_it builder")
-    file_list = ["deploy.py", "install_venv.json", "uninstall.py"]
+    file_list = [
+        "deploy.py",
+        "install_venv.json",
+        "uninstall.py",
+        "config.json"
+    ]
 
     if not os.path.exists("config.json"):
         logging.critical("config.json does not exist, exiting...")
