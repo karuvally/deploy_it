@@ -74,13 +74,13 @@ def setup_logging():
 
 # the main function
 def main():
-    # setup logging
-    setup_logging()
-
     # check if user is root
     if os.getuid() != 0:
-        logging.critical("Script cannot be run as normal user, exiting...")
+        print("Script cannot be run as normal user, exiting...")
         sys.exit(1)
+
+    # setup logging
+    setup_logging()
 
     # check if config file exists
     if not os.path.isfile("config.json"):
