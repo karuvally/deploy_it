@@ -1,13 +1,13 @@
 TODO
 ----
-* add provision for cleanup script
-* verify sample config.json syntax
-* generation of systemd unit file
+* write tutorial
 * adding pulling of src from git
 
 
 DONE
 ----
+* verify sample config.json syntax
+* add provision for cleanup script
 * script to uninstall app
 * implement sudo check in deploy.py
 * add -y argument to install commands
