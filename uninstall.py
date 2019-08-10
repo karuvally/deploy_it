@@ -8,6 +8,7 @@ import logging
 import json
 import sys
 import subprocess
+import pdb
 
 
 def run_cleanup_script(config):
@@ -67,6 +68,8 @@ def remove_service(config):
         return
 
     unit_file = config["systemd_service"]["unit_file"]
+    service_name = os.path.basename(unit_file)
+    pdb.set_trace() # debug
     execute_command("systemctl stop " + os.path.basename(unit_file))
     execute_command("systemctl disable " + os.path.basename(unit_file))
     execute_command("rm /etc/systemd/system" + unit_file)
