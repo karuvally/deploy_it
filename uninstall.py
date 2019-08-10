@@ -7,6 +7,7 @@ import os
 import logging
 import json
 import sys
+import subprocess
 
 
 def run_cleanup_script(config):
