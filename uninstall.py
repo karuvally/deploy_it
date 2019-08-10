@@ -69,10 +69,9 @@ def remove_service(config):
 
     unit_file = config["systemd_service"]["unit_file"]
     service_name = os.path.basename(unit_file)
-    pdb.set_trace() # debug
-    execute_command("systemctl stop " + os.path.basename(unit_file))
-    execute_command("systemctl disable " + os.path.basename(unit_file))
-    execute_command("rm /etc/systemd/system" + unit_file)
+    execute_command("systemctl stop " + os.path.basename(service_name))
+    execute_command("systemctl disable " + os.path.basename(service_name))
+    execute_command("rm /etc/systemd/system" + service_name)
 
     logging.info("removed service")
 
