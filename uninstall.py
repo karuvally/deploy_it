@@ -60,17 +60,17 @@ def setup_logging():
     logging.getLogger().addHandler(logging.StreamHandler())
 
 
-    # stop and remove service
-    def remove_service(config):
-        if not config["systemd_service"]["enable"]:
-            return
+# stop and remove service
+def remove_service(config):
+    if not config["systemd_service"]["enable"]:
+        return
 
-        unit_file = config["systemd_service"]["unit_file"]
-        execute_command("systemctl stop " + os.path.basename(unit_file))
-        execute_command("systemctl disable " + os.path.basename(unit_file))
-        execute_command("rm /etc/systemd/system" + unit_file)
+    unit_file = config["systemd_service"]["unit_file"]
+    execute_command("systemctl stop " + os.path.basename(unit_file))
+    execute_command("systemctl disable " + os.path.basename(unit_file))
+    execute_command("rm /etc/systemd/system" + unit_file)
 
-        logging.info("removed service")
+    logging.info("removed service")
 
 
 # the main function
