@@ -9,6 +9,7 @@ import json
 import sys
 import subprocess
 import pdb
+import shutil
 
 
 def run_cleanup_script(config):
