@@ -25,7 +25,7 @@ def run_cleanup_script(config):
 def remove_virtualenv(config):
     install_path = config["basics"]["install_path"]
     shutil.rmtree(install_path)
-    logging.info("removed virtualenv at", install_path)
+    logging.info("removed virtualenv at " + install_path)
 
 
 # execute command
